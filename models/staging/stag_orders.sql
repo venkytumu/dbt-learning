@@ -6,12 +6,14 @@ o.ShipDate,o.
 ShipMode,
 o.OrderCostPrice,
 o.OrderSellingPrice,
-ORDERSELLINGPRICE- ORDERCOSTPRICE as profit,
+ORDERSELLINGPRICE- ORDERCOSTPRICE as orderprofit,
 --from raw_products
+p.ProductID,
 p.Category,
 p.ProductName,
 p.SubCategory,
 --from raw_customers
+c.CustomerID,
 c.CustomerName,
 c.Segment,
 c.Country,
