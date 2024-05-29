@@ -20,4 +20,16 @@ models:
                 - "Same Day"
                 - "Second Class"
                 - "Standard Class" 
-        
+  - name: raw_products
+    columns:
+      - name: ProductID
+        tests:
+          - not_null
+          - unique
+      - name: Category
+        tests:
+          - accepted_values:
+              values:
+                - "Furniture"
+                - "Office"
+                - "Technology"
