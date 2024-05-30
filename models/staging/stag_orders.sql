@@ -1,7 +1,6 @@
 select
 --from raw_customers
 --here creating surrogate_key after installed of packages as surrogate_key
-{{ dbt_utils.generate_surrogate_key(['o.OrderID', 'p.ProductID','c.CustomerID']) }},
 o.OrderID,
 o.OrderDate,
 o.ShipDate,o.
@@ -16,6 +15,7 @@ p.ProductName,
 p.SubCategory,
 -- calling macro
 {{ markup('ORDERSELLINGPRICE','ORDERCOSTPRICE') }} as markup,
+d.delivery_team,
 --from raw_customers
 c.CustomerID,
 c.CustomerName,
@@ -28,3 +28,5 @@ left join {{ ref('raw_products') }} p
 on o.ProductID=p.ProductID
 left join {{ref("raw_customers")}} c 
 on o.CustomerID=c.CustomerID
+left join {{ ref('delivery_team') }} as d
+on o.ShipMode=d.ShipMode
