@@ -1,5 +1,7 @@
 select
 --from raw_customers
+--here creating surrogate_key after installed of packages as surrogate_key
+{{ dbt_utils.generate_surrogate_key(['o.OrderID', 'p.ProductID','c.CustomerID']) }},
 o.OrderID,
 o.OrderDate,
 o.ShipDate,o.
