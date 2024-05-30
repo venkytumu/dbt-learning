@@ -12,13 +12,14 @@ p.ProductID,
 p.Category,
 p.ProductName,
 p.SubCategory,
+-- calling macro
+{{ markup('ORDERSELLINGPRICE','ORDERCOSTPRICE') }} as markup,
 --from raw_customers
 c.CustomerID,
 c.CustomerName,
 c.Segment,
 c.Country,
 c.State
-
 FROM 
 {{ ref('raw_orders') }} o
 left join {{ ref('raw_products') }} p
