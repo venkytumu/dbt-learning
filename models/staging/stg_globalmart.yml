@@ -1,0 +1,11 @@
+# documentation
+version: 2
+models:
+  - name: stag_orders
+    description: one unique order by row
+    columns:
+      - name: orderid
+        description: primary key for stag_orders
+      - name: shipmode
+        description: "{{ doc('shipmode') }}"
+        
